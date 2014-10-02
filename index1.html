@@ -1,0 +1,33 @@
+<!--Testing out multiple timelines; failed-->
+<head>
+		<link rel="stylesheet" type="text/css" href="http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css">
+		<!-- jQuery -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<!-- BEGIN TimelineJS -->
+		<script type="text/javascript" src="/js/timeline.mod.2.17.js"></script>
+		<script>
+				$(document).ready(function() {
+					var company = new VMM.Timeline("timeline-company",1800, 600);
+					company.init({
+							source: 'https://docs.google.com/spreadsheet/pub?key=0AnTWbUfqj0HWdDQ4dXlqby1Ca2NkYUt3UzhrbkFSWXc&output=html',
+							embed_id: 'timeline-company'
+					});
+					var people = new VMM.Timeline("timeline-people",1800, 600);
+					people.init({
+							source: 'https://docs.google.com/spreadsheet/pub?key=0AnTWbUfqj0HWdHl0V2Z1SEFlSjN4NnMtejEzTXZ3d3c&output=html',
+							embed_id: 'timeline-people'
+					});
+					var toy = new VMM.Timeline("timeline-toy",1800, 600);
+					toy.init({
+							source: 'https://docs.google.com/spreadsheet/pub?key=0AnTWbUfqj0HWdHY4NmQ1ZUNnblpHS2RSSENsLU5fWHc&output=html',
+							embed_id: 'timeline-toy'
+					});
+				});
+		</script>
+		<!-- END TimelineJS -->
+</head>
+<body>  
+	<div id="timeline-company"></div>
+	<div id="timeline-people"></div>
+	<div id="timeline-toy"></div>
+</body>
