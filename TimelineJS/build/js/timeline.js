@@ -26,7 +26,6 @@
 	By John Resig http://ejohn.org/
 	MIT Licensed.
 ================================================== */
-console.log("FUCK YEAH TIMELINE JS");
 (function() {
 	var initializing = false,
 	fnTest = /xyz/.test(function() {
@@ -7114,11 +7113,18 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 			 }
 		}
 		
+		// [CHANGBAI] HAR! THIS BE WHERE HASH LINKS PROCESS!
 		window.onhashchange = function () {
+			console.log("HAR! THIS BE WHERE HASH LINKS PROCESS");
 			var hash					=	window.location.hash.substring(1);
 			if (config.hash_bookmark) {
 				if (is_moving) {
-					goToEvent(parseInt(hash));
+					if ( !parseInt(hash) ) {
+						// if not a number, go through named slide routing logic
+						goToNamedSlide(hash);
+					} else {
+						goToEvent(parseInt(hash));
+					}
 				} else {
 					is_moving = false;
 				}
@@ -7275,6 +7281,11 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 				slider.setSlide(config.current_slide);
 				timenav.setMarker(config.current_slide, config.ease,config.duration);
 			} 
+		}
+		
+		function goToNamedSlide(name) {
+			// retrieve the named slide's number
+			// get there with goToEvent
 		}
 		
 		function setHash(n) {
@@ -7827,6 +7838,7 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 		}
 		
 		this.setMarker = function(n, ease, duration, fast) {
+			console.log("[this.setMarker]goToMarker");
 			goToMarker(n, ease, duration);
 		}
 		
@@ -7848,6 +7860,7 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 			
 			VMM.Lib.css($timenavline, "left", Math.round(config.width/2)+2);
 			VMM.Lib.css($timenavindicator, "left", Math.round(config.width/2)-8);
+			console.log("[reSize]goToMarker");
 			goToMarker(config.current_slide, config.ease, config.duration, true, firstrun);
 		};
 		
@@ -7969,7 +7982,7 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 		/* MARKER EVENTS
 		================================================== */
 		function onMarkerClick(e) {
-			console.log("[timeline.js] onMarkerClick");
+			console.log("[onMarkerClick]goToMarker");
 			$dragslide.cancelSlide();
 			goToMarker(e.data.number);
 			upDate();
