@@ -1,0 +1,54 @@
+// styles for the advisory board page
+.board-list {
+  list-style-type: none;
+  margin-top: 3.5rem;
+  li {
+    display: flex;
+    margin-bottom: 1.5em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.board-member-picture {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  max-width: 4.6875em; /* 75px */
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  @include mq(netbook) {
+    max-width: 9.375em; /* 150px */
+  }
+}
+
+.board-member-overview {
+  flex: 2;
+  margin-left: 1em;
+}
+
+.board-member-name {
+  margin: 0 0 0.5em;
+  font-size: 1.45rem;
+}
+
+.board-member-blurb {
+  max-width: 35em;
+  font-size: 1.125rem;
+}
+
+.board-member-inverse {
+  .board-member-picture {
+    order: 2;
+  }
+  .board-member-overview {
+    order: 1;
+    text-align: right;
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+}
+

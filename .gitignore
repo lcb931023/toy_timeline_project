@@ -1,2 +1,6 @@
 # Mac crap
 .DS_Store
+
+# node stuffs
+src/node-modules
+build

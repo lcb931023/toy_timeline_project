@@ -1,0 +1,44 @@
+// base styles
+@import "pieces/vars";
+@import "pieces/mixins";
+@import "pieces/classes";
+@import "pieces/normalize";
+@import "pieces/base";
+// @import "pieces/typography";
+
+
+/* t1 - t6 */
+.t1 {
+  font-size: 2.25rem;
+  margin: 0 0 0.5em;
+  display: block;
+}
+
+#main {
+  margin-top: 6rem;
+  padding-top: 1rem;
+}
+
+// generic article styles
+.article {
+  p {
+    font-size: 1.125rem;
+    max-width: 35em;
+  }
+}
+
+body {
+  background: #f8fdff;
+}
+
+@import "header"; // includes navigation styles
+@import "footer";
+@import "news";
+@import "advisory-board";
+
+.jpp-big-logo {
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,153 @@
+$header-bkgd: #b6ff00;
+$header-text-color: #99367f;
+
+$color1: #ff621d;
+$color2: #228dff;
+$color3: #ffca1b;
+$color4: #ff0092;
+
+
+// header & navigation styles
+#header {
+  background: $header-bkgd;
+  // background: lighten(rgb(71, 73, 161), 15%);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #444;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+.header-wrapper {
+  display: flex;
+  #h1       {flex: 3; }
+  #main-nav {flex: 1; }
+  @include mq(netbook) {
+    #h1       {flex: 2; }
+    #main-nav {flex: 3; }
+  }
+}
+
+#h1 {
+  font-size: 1rem;
+  margin: 0;
+  img {
+    max-width: 100%;
+  }
+}
+
+#nav-toggle {
+  display: block;
+  color: $header-text-color;
+  text-align: right;
+  position: relative;
+  @include hover();
+  @include mq(netbook) {display: none; }
+  .fa-bars, .fa-close {
+    position: absolute;
+    right: 0;
+    font-size: 150%;
+    transition: opacity 0.3s ease-out;
+  }
+  .fa-bars  {z-index: 505; opacity: 1; }
+  .fa-close {z-index: 504; opacity: 0; }
+  // show X when nav is open
+  &.show-x {
+    .fa-bars  {z-index: 504; opacity: 0; }
+    .fa-close {z-index: 505; opacity: 1; }
+  }
+}
+
+#main-nav {
+  position: relative;
+}
+
+// ================= nav-list ==================
+// the actual <a> links list
+#nav-list {
+  list-style: none;
+  text-align: right;
+  color: $header-text-color;
+  font-weight: bold;
+  // ----------------------------
+  height: 0;
+  position: fixed;
+  left: 0;
+  top: 11.8%;
+  width: 100%;
+  z-index: 50;
+
+  // off-screen styles
+  transform: translateY(-400px);
+  transition: 0.5s ease-out;
+  &.show {transform: translateY(0);}
+  // ----------------------------
+  li {
+    background: darken($header-bkgd, 3%);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #444;
+    // .here styles so that the nav updates
+    // to show a visitor what page we're on
+    &.here {
+      position: relative;
+      &:after {
+        content: "\00a0";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 2%;
+        background: green;
+      }
+    }
+  }
+  a {
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  @include mq(netbook) {
+    transform: translateY(0);
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    li {
+      flex: 1;
+      padding: 0;
+      border-bottom: none;
+      display: inline-block;
+      // &:hover {
+      //   background: darken($green, 15%);
+      //   border-bottom: 1px solid darken($green, 20%);
+      // }
+      // &.here {
+      //   background: $green;
+      //   border-bottom: 1px solid $green;
+      //   color: $white;
+      // }
+    }
+    a {
+      margin: 7% 0 0;
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem 0.25rem;
+      border-radius: 6px;
+      transition: background 0.3s ease-out;
+      &:hover { color: #fff; }
+    }
+  }
+
+}
+.home-a:hover {background: $color1;}
+.about-a:hover {background: $color2;}
+.board-a:hover {background: $color3; color: $header-text-color !important;}
+.news-a:hover {background: $color4;}
+
+
+// ================ end nav-list ===================
+

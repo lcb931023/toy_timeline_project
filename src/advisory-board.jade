@@ -1,0 +1,43 @@
+doctype html
+head
+  title Advisory Board - Jewish Play Project
+  meta(name="description", content="description")
+  include html/meta.jade
+  include html/head-scripts.jade
+
+
+body#jpp(data-page="advisory-board")
+  a(href="#main", class="assistive-text") Skip to main content
+  div.container
+    include html/header.jade
+
+    div#main
+      div.wrapper
+        h2.t1 Advisory Board
+        p These are some of the members that have helped make this project possible
+
+        ul.board-list
+          li
+            figure.board-member-picture
+              img(src="http://lorempixel.com/150/150/people")
+            article.board-member-overview
+              h3.board-member-name Stephen Jacobs
+              p.board-member-blurb Maxime reprehenderit porro nesciunt, facilis vero. Natus doloremque cum eum mollitia dolores deserunt possimus saepe quis beatae quas, assumenda voluptatum blanditiis corrupti.
+          li
+            figure.board-member-picture
+              img(src="http://lorempixel.com/150/150/people")
+            article.board-member-overview
+              h3.board-member-name Rad Stewart
+              p.board-member-blurb Suscipit laudantium nesciunt eum odio ut ex rem! Soluta expedita magni praesentium quam maxime tenetur. Id eaque ipsum quas consequuntur numquam impedit!
+          li
+            figure.board-member-picture
+              img(src="http://lorempixel.com/150/150/people")
+            article.board-member-overview
+              h3.board-member-name Janis Hendrix
+              p.board-member-blurb Nemo dolores cupiditate beatae, atque sed autem, enim doloribus distinctio corporis sit vero impedit ut facilis itaque, porro rem rerum adipisci aliquid.
+
+
+    include html/footer.jade
+
+  include html/scripts.jade
+</html>
