@@ -5242,6 +5242,16 @@ if(typeof VMM != 'undefined' && typeof VMM.Slider == 'undefined') {
 			goToSlide(n);
 		};
 		
+		this.findSlideIndexByName = function(n) {
+			for (var i = 0; i < slides.length; i++)
+			{
+				if (slides[i].slideName == n) {
+					return i;
+				}
+			}
+			return -1;
+		};
+		
 		/* ON EVENT
 		================================================== */
 		function onConfigSet() {
@@ -5696,7 +5706,6 @@ if(typeof VMM != 'undefined' && typeof VMM.Slider == 'undefined') {
 			current_slide	= n;
 			_pos			= slides[current_slide].leftpos();
 			
-			
 			if (current_slide == 0) {is_first = true};
 			if (current_slide +1 >= slides.length) {is_last = true};
 			if (ease != null && ease != "") {_ease = ease};
@@ -5914,7 +5923,7 @@ if (typeof VMM.Slider != 'undefined') {
 		_id				= _id + data.uniqueid;
 		this.enqueue	= _enqueue;
 		this.id			= _id;
-		
+		this.slideName = data.slideName;
 		
 		element		=	VMM.appendAndGetElement(_parent, "<div>", "slider-item");
 		
@@ -7113,15 +7122,14 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 			 }
 		}
 		
-		// [CHANGBAI] HAR! THIS BE WHERE HASH LINKS PROCESS!
 		window.onhashchange = function () {
-			console.log("HAR! THIS BE WHERE HASH LINKS PROCESS");
 			var hash					=	window.location.hash.substring(1);
 			if (config.hash_bookmark) {
 				if (is_moving) {
-					if ( !parseInt(hash) ) {
-						// if not a number, go through named slide routing logic
-						goToNamedSlide(hash);
+					if ( isNaN(parseInt(hash)) ) {
+						// if string, find the index and route it
+						var slideI = slider.findSlideIndexByName(hash);
+						if ( slideI != -1 ) goToEvent(slideI);
 					} else {
 						goToEvent(parseInt(hash));
 					}
@@ -7217,6 +7225,7 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 
 		function onDataReady(e, d) {
 			trace("onDataReady");
+			
 			data = d.timeline;
 			
 			if (type.of(data.era) != "array") {
@@ -7281,11 +7290,6 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 				slider.setSlide(config.current_slide);
 				timenav.setMarker(config.current_slide, config.ease,config.duration);
 			} 
-		}
-		
-		function goToNamedSlide(name) {
-			// retrieve the named slide's number
-			// get there with goToEvent
 		}
 		
 		function setHash(n) {
@@ -7469,6 +7473,7 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 				VMM.bindEvent($navigation, onMarkerUpdate, "UPDATE");
 				
 				// INITIALIZE COMPONENTS
+				// _dates is all the objects as info form from either spreadsheet or json(p)
 				slider.init(_dates);
 				timenav.init(_dates, data.era);
 			
@@ -7516,7 +7521,6 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 		
 		// BUILD DATE OBJECTS
 		function buildDates() {
-			
 			_dates = [];
 			VMM.fireEvent(global, config.events.messege, "Building Dates");
 			updateSize();
@@ -7549,7 +7553,8 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 								_date.needs_slug = true;
 							}
 						}
-						
+
+						_date.slideName		= data.date[i].slideName;
 						_date.title				= data.date[i].headline;
 						_date.headline			= data.date[i].headline;
 						_date.type				= data.date[i].type;
@@ -7838,7 +7843,6 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 		}
 		
 		this.setMarker = function(n, ease, duration, fast) {
-			console.log("[this.setMarker]goToMarker");
 			goToMarker(n, ease, duration);
 		}
 		
@@ -7860,7 +7864,6 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 			
 			VMM.Lib.css($timenavline, "left", Math.round(config.width/2)+2);
 			VMM.Lib.css($timenavindicator, "left", Math.round(config.width/2)-8);
-			console.log("[reSize]goToMarker");
 			goToMarker(config.current_slide, config.ease, config.duration, true, firstrun);
 		};
 		
@@ -7982,7 +7985,6 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 		/* MARKER EVENTS
 		================================================== */
 		function onMarkerClick(e) {
-			console.log("[onMarkerClick]goToMarker");
 			$dragslide.cancelSlide();
 			goToMarker(e.data.number);
 			upDate();
@@ -9496,7 +9498,6 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 					if (typeof worksheet == "undefined") worksheet = "od6";
 					
 					url	= "https://spreadsheets.google.com/feeds/list/" + key + "/" + worksheet + "/public/values?alt=json";
-					
 					timeout = setTimeout(function() {
 						trace("Google Docs timeout " + url);
 						trace(url);
@@ -9585,6 +9586,7 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 							} else {
 								var date = {
 										type:			"google spreadsheet",
+										slideName:		getGVar(dd.gsx$slidename),
 										startDate:		getGVar(dd.gsx$startdate),
 										endDate:		getGVar(dd.gsx$enddate),
 										headline:		getGVar(dd.gsx$headline),
