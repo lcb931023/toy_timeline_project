@@ -20,6 +20,7 @@ $main-bkgd: #e7f6ff;
   color: $main-text-color;
   margin-top: 6rem;
   padding-top: 1rem;
+  margin-bottom: 4rem;
 }
 
 // generic article styles
@@ -43,5 +44,8 @@ body {
   img {
     display: block;
     max-width: 100%;
+    @include mq(netbook) {
+      display: none;
+    }
   }
 }

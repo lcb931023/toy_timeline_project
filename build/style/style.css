@@ -169,6 +169,7 @@ p {
   color: #72115d;
   margin-top: 6rem;
   padding-top: 1rem;
+  margin-bottom: 4rem;
 }
 
 .article p {
@@ -186,7 +187,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 101;
 }
 #header a {
   color: inherit;
@@ -610,6 +611,11 @@ body[data-page='news'] .news-li {
 .jpp-big-logo img {
   display: block;
   max-width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .jpp-big-logo img {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
