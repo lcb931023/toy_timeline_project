@@ -3,4 +3,5 @@
 
 # node stuffs
 src/node_modules
+src/.sass-cache
 npm-debug.log

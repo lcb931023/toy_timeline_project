@@ -49,3 +49,8 @@ body {
     }
   }
 }
+
+// Override timeline bg color
+.vco-storyjs {
+  background-color: $main-bkgd !important;
+}
