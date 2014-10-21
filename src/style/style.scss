@@ -6,6 +6,8 @@
 @import "pieces/base";
 // @import "pieces/typography";
 
+$main-text-color: #72115d;
+$main-bkgd: #e7f6ff;
 
 /* t1 - t6 */
 .t1 {
@@ -15,6 +17,7 @@
 }
 
 #main {
+  color: $main-text-color;
   margin-top: 6rem;
   padding-top: 1rem;
 }
@@ -28,13 +31,13 @@
 }
 
 body {
-  background: #f8fdff;
+  background: $main-bkgd;
 }
 
 @import "header"; // includes navigation styles
 @import "footer";
 @import "news";
-@import "advisory-board";
+@import "people";
 
 .jpp-big-logo {
   img {

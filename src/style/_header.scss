@@ -1,17 +1,15 @@
-$header-bkgd: #b6ff00;
+$header-bkgd: #228dff;
 $header-text-color: #99367f;
 
-$color1: #ff621d;
-$color2: #228dff;
-$color3: #ffca1b;
-$color4: #ff0092;
+$color1: #f6eb0f;
+$color2: #b6ff00;
+$color3: #ed2724;
+$color4: #72115d;
 
 
 // header & navigation styles
 #header {
   background: $header-bkgd;
-  // background: lighten(rgb(71, 73, 161), 15%);
-  padding: 0.75rem 0;
   border-bottom: 1px solid #444;
   position: fixed;
   top: 0;
@@ -28,13 +26,17 @@ $color4: #ff0092;
   #main-nav {flex: 1; }
   @include mq(netbook) {
     #h1       {flex: 2; }
-    #main-nav {flex: 3; }
+    #main-nav {
+      flex: 3;
+      right: -5rem;
+    }
   }
 }
 
 #h1 {
   font-size: 1rem;
   margin: 0;
+  padding: 0.75rem 0;
   img {
     max-width: 100%;
   }
@@ -74,10 +76,10 @@ $color4: #ff0092;
   color: $header-text-color;
   font-weight: bold;
   // ----------------------------
-  height: 0;
+  height: 100%;
   position: fixed;
   left: 0;
-  top: 11.8%;
+  top: 10.8%;
   width: 100%;
   z-index: 50;
 
@@ -87,7 +89,6 @@ $color4: #ff0092;
   &.show {transform: translateY(0);}
   // ----------------------------
   li {
-    background: darken($header-bkgd, 3%);
     padding-bottom: 0.5rem;
     border-bottom: 1px solid #444;
     // .here styles so that the nav updates
@@ -121,6 +122,7 @@ $color4: #ff0092;
       padding: 0;
       border-bottom: none;
       display: inline-block;
+      transition: background 0.3s ease-out;
       // &:hover {
       //   background: darken($green, 15%);
       //   border-bottom: 1px solid darken($green, 20%);
@@ -132,22 +134,39 @@ $color4: #ff0092;
       // }
     }
     a {
-      margin: 7% 0 0;
-      width: 100%;
+      margin: 17% 0 0;
+      width: 85%;
       text-align: center;
-      padding: 0.5rem 0.25rem;
-      border-radius: 6px;
+      padding: 0.35rem 0.25rem;
+      //border-radius: 6px;
       transition: background 0.3s ease-out;
-      &:hover { color: #fff; }
     }
   }
 
 }
-.home-a:hover {background: $color1;}
-.about-a:hover {background: $color2;}
-.board-a:hover {background: $color3; color: $header-text-color !important;}
-.news-a:hover {background: $color4;}
+// nav colors
+.home-li {background: $color1;}
+.about-li {background: $color2;}
+.people-li {background: $color3; color: #fff;}
+.news-li {background: $color4; color: #fff;}
+
+@include mq(netbook) {
+  .home-li {background: none;}
+  .about-li {background: none;}
+  .people-li {background: none; color: $header-text-color;}
+  .news-li {background: none; color: $header-text-color;}
+
+}
+
+.home-li:hover {background: $color1;}
+.about-li:hover {background: $color2;}
+.people-li:hover {background: $color3; color: #fff !important;}
+.news-li:hover {background: $color4; color: #fff !important;}
+
+body[data-page='index'] .home-li {background: $color1;}
+body[data-page='about'] .about-li {background: $color2;}
+body[data-page='people'] .people-li {background: $color3; color: #fff !important;}
+body[data-page='news'] .news-li {background: $color4; color: #fff !important;}
 
 
 // ================ end nav-list ===================
-

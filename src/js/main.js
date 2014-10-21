@@ -19,8 +19,8 @@ jpp.main = {
       case 'about':
         console.log('about');
         break;
-      case 'advisory-board':
-        console.log('advisory-board');
+      case 'people':
+        console.log('people');
         break;
       case 'news':
         console.log('news');
