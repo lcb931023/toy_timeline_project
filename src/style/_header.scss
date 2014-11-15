@@ -147,6 +147,7 @@ $color4: #72115d;
 }
 // nav colors
 .home-li {background: $color1;}
+.timeline-li {background: $color4; color: #fff;}
 .about-li {background: $color2;}
 .people-li {background: $color3; color: #fff;}
 .news-li {background: $color4; color: #fff;}
@@ -154,6 +155,7 @@ $color4: #72115d;
 
 @include mq(netbook) {
   .home-li {background: none;}
+  .timeline-li {background: none; color: $header-text-color;}
   .about-li {background: none;}
   .people-li {background: none; color: $header-text-color;}
   .news-li {background: none; color: $header-text-color;}
@@ -161,12 +163,14 @@ $color4: #72115d;
 }
 
 .home-li:hover {background: $color1;}
+.timeline-li:hover {background: $color4; color: #fff !important;}
 .about-li:hover {background: $color2;}
 .people-li:hover {background: $color3; color: #fff !important;}
 .news-li:hover {background: $color4; color: #fff !important;}
 .player-li:hover {background: $color2;}
 
 body[data-page='index'] .home-li {background: $color1;}
+body[data-page='timeline'] .timeline-li {background: $color4; color: #fff !important;}
 body[data-page='about'] .about-li {background: $color2;}
 body[data-page='people'] .people-li {background: $color3; color: #fff !important;}
 body[data-page='news'] .news-li {background: $color4; color: #fff !important;}

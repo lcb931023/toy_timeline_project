@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Jewish Play Project</title>
+  <title>Timeline - Jewish Play Project</title>
   <meta name="description" content="description">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
-<body id="jpp" data-page="index"><a href="#main" class="assistive-text">Skip to main content</a>
+<body id="jpp" data-page="timeline"><a href="#main" class="assistive-text">Skip to main content</a>
   <div class="container">
     <header id="header">
       <div class="wrapper header-wrapper">
@@ -32,7 +32,18 @@
     </header>
     <div id="main">
       <div class="wrapper">
-        <figure class="jpp-big-logo"><img src="img/jpp-logo-big.png" title="Jewish Play Project" alt="Jewish Play Project"></figure>
+        <div id="timeline-embed"></div>
+        <script>
+          var timeline_config = {
+              width:              '100%',
+              height:             '600',
+              source:             'https://docs.google.com/spreadsheet/pub?key=0AnTWbUfqj0HWdFZ5NW9RbjZCNGxDRGJLYWpobXJxUHc&output=html',
+              hash_bookmark:      true,                           //OPTIONAL LOCATION BAR HASHES
+              font:               'Bevan-PotanoSans',             //OPTIONAL FONT
+              debug:              true,                           //OPTIONAL DEBUG TO CONSOLE
+          }
+        </script>
+        <script src="js/libs/TimelineJS/js/storyjs-embed.js"></script>
       </div>
     </div>
     <footer id="footer">

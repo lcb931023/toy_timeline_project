@@ -1,0 +1,30 @@
+doctype html
+head
+  title Timeline - Jewish Play Project
+  meta(name="description", content="description")
+  include html/meta.jade
+  include html/head-scripts.jade
+
+body#jpp(data-page="timeline")
+  a(href="#main", class="assistive-text") Skip to main content
+  div.container
+    include html/header.jade
+
+    div#main
+      div.wrapper
+        div#timeline-embed
+        script.
+          var timeline_config = {
+              width:              '100%',
+              height:             '600',
+              source:             'https://docs.google.com/spreadsheet/pub?key=0AnTWbUfqj0HWdFZ5NW9RbjZCNGxDRGJLYWpobXJxUHc&output=html',
+              hash_bookmark:      true,                           //OPTIONAL LOCATION BAR HASHES
+              font:               'Bevan-PotanoSans',             //OPTIONAL FONT
+              debug:              true,                           //OPTIONAL DEBUG TO CONSOLE
+          }
+        script(src="js/libs/TimelineJS/js/storyjs-embed.js")
+
+    include html/footer.jade
+
+  include html/scripts.jade
+</html>

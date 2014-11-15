@@ -242,6 +242,7 @@ body {
   color: #99367f;
   text-align: right;
   position: relative;
+  top: 1rem;
 }
 #nav-toggle:hover {
   cursor: pointer;
@@ -366,6 +367,11 @@ body {
   background: #f6eb0f;
 }
 
+.timeline-li {
+  background: #72115d;
+  color: #fff;
+}
+
 .about-li {
   background: #b6ff00;
 }
@@ -380,9 +386,18 @@ body {
   color: #fff;
 }
 
+.player-li {
+  background: #b6ff00;
+}
+
 @media only screen and (min-width: 768px) {
   .home-li {
     background: none;
+  }
+
+  .timeline-li {
+    background: none;
+    color: #99367f;
   }
 
   .about-li {
@@ -398,9 +413,18 @@ body {
     background: none;
     color: #99367f;
   }
+
+  .player-li {
+    background: none;
+  }
 }
 .home-li:hover {
   background: #f6eb0f;
+}
+
+.timeline-li:hover {
+  background: #72115d;
+  color: #fff !important;
 }
 
 .about-li:hover {
@@ -417,8 +441,17 @@ body {
   color: #fff !important;
 }
 
+.player-li:hover {
+  background: #b6ff00;
+}
+
 body[data-page='index'] .home-li {
   background: #f6eb0f;
+}
+
+body[data-page='timeline'] .timeline-li {
+  background: #72115d;
+  color: #fff !important;
 }
 
 body[data-page='about'] .about-li {
@@ -433,6 +466,10 @@ body[data-page='people'] .people-li {
 body[data-page='news'] .news-li {
   background: #72115d;
   color: #fff !important;
+}
+
+body[data-page='player'] .player-li {
+  background: #b6ff00;
 }
 
 #footer {

@@ -1,5 +1,6 @@
-# Mac crap
+# System Crap
 .DS_Store
+Thumbs.db
 
 # node stuffs
 src/node_modules
