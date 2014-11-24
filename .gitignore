@@ -8,4 +8,4 @@ src/.sass-cache
 npm-debug.log
 
 # Build folder
-build
+build/
