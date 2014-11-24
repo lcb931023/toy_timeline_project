@@ -26,7 +26,7 @@ jpp.main = {
         console.log('news');
         break;
       default:
-        console.log('lol');
+        //console.log('lol');
         break;
     }
 
