@@ -6,3 +6,6 @@ Thumbs.db
 src/node_modules
 src/.sass-cache
 npm-debug.log
+
+# Build folder
+build
