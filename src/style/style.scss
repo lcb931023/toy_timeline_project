@@ -35,6 +35,10 @@ body {
   background: $main-bkgd;
 }
 
+a:link {
+  color: #4f0b41;
+}
+
 @import "header"; // includes navigation styles
 @import "footer";
 @import "home";
