@@ -1,0 +1,20 @@
+// Homepage style
+
+.jpp-big-logo {
+  img {
+    display: block;
+    max-width: 100%;
+    @include mq(netbook) {
+      display: none;
+    }
+  }
+}
+
+.owl-carousel .item{
+  background: #3fbf79;
+  padding: 30px 0px;
+  margin: 10px;
+  color: #FFF;
+  border-radius: 3px;
+  text-align: center;
+}

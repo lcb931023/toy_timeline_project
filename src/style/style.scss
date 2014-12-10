@@ -37,18 +37,9 @@ body {
 
 @import "header"; // includes navigation styles
 @import "footer";
+@import "home";
 @import "news";
 @import "people";
-
-.jpp-big-logo {
-  img {
-    display: block;
-    max-width: 100%;
-    @include mq(netbook) {
-      display: none;
-    }
-  }
-}
 
 // Override timeline bg color
 .vco-storyjs {
