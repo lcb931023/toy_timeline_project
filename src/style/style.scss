@@ -27,7 +27,7 @@ $main-bkgd: #e7f6ff;
 .article {
   p {
     font-size: 1.125rem;
-    max-width: 35em;
+    max-width: 40em;
   }
 }
 
@@ -43,7 +43,7 @@ a:link {
 @import "footer";
 @import "home";
 @import "news";
-@import "people";
+@import "about";
 
 // Override timeline bg color
 .vco-storyjs {
