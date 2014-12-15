@@ -37,6 +37,15 @@
   }
 }
 
+.news-subtitle {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.news-divider {
+  text-align: center;
+}
+
 .read-more {
   display: block;
 }
@@ -55,7 +64,7 @@
 }
 
 
-.release-date {
+.news-article-info {
   font-size: 0.875rem !important;
 }
 
