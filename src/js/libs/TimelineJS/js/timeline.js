@@ -4519,8 +4519,9 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 					captionElem			=	"<div class='caption'>" + VMM.Util.linkify_with_twitter(data.caption, "_blank") + "</div>";
 				}
 			// IMAGE
+			// [CUSTOM] Clickable Image
 				if (m.type				==	"image") {
-					mediaElem			=	"<div class='media-image media-shadow'><img src='" + m.id + "' class='media-image'></div>";
+					mediaElem			=	"<div class='media-image media-shadow'><a href='" + m.id + "' target='_blank'><img src='" + m.id + "' class='media-image'></a></div>";
 			// FLICKR
 				} else if (m.type		==	"flickr") {
 					//mediaElem			=	"<div class='media-image media-shadow' id='" + uid + "'>" + loading_messege + "</div>";
