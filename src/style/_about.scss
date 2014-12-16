@@ -20,6 +20,9 @@
     display: block;
     max-width: 100%;
   }
+  .stretch {
+    min-width: 100%;
+  }
   @include mq(netbook) {
     max-width: 9.375em; /* 150px */
   }
