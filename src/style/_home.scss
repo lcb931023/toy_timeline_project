@@ -1,5 +1,6 @@
 // Homepage style
 
+
 .jpp-big-logo {
   img {
     display: block;
@@ -10,11 +11,42 @@
   }
 }
 
-.owl-carousel .item{
-  background: #3fbf79;
-  padding: 30px 0px;
-  margin: 10px;
-  color: #FFF;
-  border-radius: 3px;
-  text-align: center;
+.carousel-wrapper {
+  margin-top: 5rem;
+  margin-bottom: -4rem;
+  @include mq(netbook) {
+    position: fixed;
+    bottom: 2rem;
+    margin-bottom: 0;
+  }
+}
+.carousel-caption {
+  font-size: .75rem;
+  position: relative;
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 0.1rem;
+  color: #444444;
+}
+.carousel {
+  margin-top: 1rem;
+  display: flex;
+  overflow: hidden;
+  filter: grayscale(70%);
+  figure {
+    flex: 1;
+    margin: 0 0;
+    max-width: 20%;
+    min-width: 5rem;
+    height: 4rem;
+    @include mq(netbook) {
+      min-width: 10rem;
+      height: 8rem;
+    }
+    img {
+      min-height: 100%;
+      max-width: 100%;
+      opacity: 0.6;
+    }
+  }
 }
