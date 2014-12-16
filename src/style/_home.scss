@@ -42,6 +42,7 @@
     @include mq(netbook) {
       min-width: 10rem;
       height: 8rem;
+      width: 10rem;
     }
     img {
       min-height: 100%;
